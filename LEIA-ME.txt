@@ -1,0 +1,27 @@
+PLUVIODATA — JAVASCRIPT PURO
+============================
+
+ARQUIVOS
+- index.html: interface
+- style.css: estilos
+- script.js: validação, consulta e exportação CSV
+
+COMO EXECUTAR
+1. Extraia todos os arquivos do ZIP para uma pasta.
+2. Abra o arquivo index.html no navegador.
+3. Preencha código da estação, data inicial e data final.
+4. Clique em "Consultar dados".
+5. Quando houver resultados, clique em "Exportar CSV".
+
+NÃO PRECISA INSTALAR NODE.JS, NPM, NESTJS OU OUTRA BIBLIOTECA.
+
+ATENÇÃO SOBRE A API DA ANA
+O JavaScript consulta diretamente o endpoint legado:
+https://telemetriaws1.ana.gov.br/ServiceANA.asmx/DadosHidrometeorologicos
+
+A consulta só funcionará se esse serviço ainda estiver ativo e permitir requisições de navegadores por CORS. Se aparecer erro de acesso, isso não é um problema de aparência da interface: o navegador está bloqueando a chamada ou o serviço mudou. Nesse cenário, sem backend, será necessário usar uma API que permita CORS ou um proxy público confiável.
+
+EXPORTAÇÃO
+O CSV tem as colunas Código da estação, Data, Hora e Precipitação (mm).
+O nome inclui a data e a hora local da exportação, por exemplo:
+dados_pluviometricos_20261013_203045.csv

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b52">
+  <title>PluvioData | Consulta pluviométrica</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-mark" aria-hidden="true">☂</div>
+    <div class="brand-copy">
+      <h1>PluvioData</h1>
+      <p>Consulta de dados pluviométricos</p>
+    </div>
+    <span class="source-tag">ANA</span>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">MONITORAMENTO HIDROLÓGICO</p>
+        <h2>Dados de chuva, de forma simples.</h2>
+        <p class="intro-text">Informe a estação e o período para consultar registros de precipitação e exportar os resultados.</p>
+      </div>
+      <div class="rain-art" aria-hidden="true">☁<span>〰</span></div>
+    </section>
+
+    <section class="panel" aria-labelledby="consulta-title">
+      <div class="section-heading">
+        <div class="heading-icon">⌕</div>
+        <div><h3 id="consulta-title">Nova consulta</h3><p>Preencha os parâmetros abaixo.</p></div>
+      </div>
+      <form id="consultaForm">
+        <div class="form-grid">
+          <div class="field">
+            <label for="codigo">Código da estação</label>
+            <input id="codigo" name="codigo" required autocomplete="off" placeholder="Ex.: 65060001">
+          </div>
+          <div class="field">
+            <label for="inicio">Data inicial</label>
+            <input id="inicio" name="inicio" type="date" required>
+          </div>
+          <div class="field">
+            <label for="fim">Data final</label>
+            <input id="fim" name="fim" type="date" required>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-primary" id="consultarBtn" type="submit"><span>⌕</span> Consultar dados</button>
+          <button class="btn btn-secondary" id="csvBtn" type="button" disabled><span>⇩</span> Exportar CSV</button>
+        </div>
+        <div id="status" class="status status-info" role="status" aria-live="polite">Pronto para consultar. Informe a estação e o período.</div>
+      </form>
+    </section>
+
+    <section class="panel results-panel" aria-labelledby="results-title">
+      <div class="results-heading">
+        <div class="section-heading">
+          <div class="heading-icon">▤</div>
+          <div><h3 id="results-title">Resultados</h3><p>Registros de precipitação encontrados.</p></div>
+        </div>
+        <span id="contador" class="count-pill">0 registros</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Código da estação</th><th>Data</th><th>Hora</th><th>Precipitação (mm)</th></tr></thead>
+          <tbody id="linhas"><tr class="empty-row"><td colspan="4"><span class="empty-icon">☂</span><strong>Nenhum dado carregado</strong><small>Os resultados da consulta aparecerão aqui.</small></td></tr></tbody>
+        </table>
+      </div>
+      <p class="table-footnote">A exportação CSV mantém data e hora em colunas distintas e inclui a data/hora da exportação no nome do arquivo.</p>
+    </section>
+
+    <footer>
+      <span>PluvioData</span>
+      <span>Consulta de precipitação · Dados fornecidos pela fonte consultada</span>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
