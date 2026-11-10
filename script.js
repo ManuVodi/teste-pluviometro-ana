@@ -10,8 +10,7 @@ const contador = document.getElementById("contador");
 
 let resultados = [];
 
-// O endpoint legado pode não estar mais disponível.
-// Configure aqui uma URL de API que permita acesso direto do navegador (CORS).
+// teste para ver se a page vai carregar
 const API_URL = "https://telemetriaws1.ana.gov.br/ServiceANA.asmx/DadosHidrometeorologicos";
 
 function setStatus(message, type = "info") {
